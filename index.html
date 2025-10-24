@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio de Software Engineer especializado en Linux y Open Source"
+    />
+    <title>Portfolio Amapola Cancino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="Css/styles.css" />
+  </head>
+  <body class="bg-black-50 text-gray-900">
+    <!-- nav -->
+    <nav class="fixed top-0 w-full bg-black shadow-md z-50" id="navbar">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="text-2xl font-bold text-purple-900">Portfolio</a>
+        <div class="hidden md:flex space-x-6">
+          <a href="#hero" class="nav-link">Inicio</a>
+          <a href="#about" class="nav-link">Sobre Mí</a>
+          <a href="#projects" class="nav-link">Proyectos</a>
+          <a href="#contact" class="nav-link">Contacto</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+      <!-- monbile -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+        <a href="#hero" class="block px-6 py-3 hover:bg-gray-100">Inicio</a>
+        <a href="#about" class="block px-6 py-3 hover:bg-gray-100">Sobre Mí</a>
+        <a href="#projects" class="block px-6 py-3 hover:bg-gray-100"
+          >Proyectos</a
+        >
+        <a href="#contact" class="block px-6 py-3 hover:bg-gray-100"
+          >Contacto</a
+        >
+      </div>
+    </nav>
+
+    <!-- necesito un heroe -->
+    <section
+      id="hero"
+      class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white pt-20"
+    >
+      <div class="container mx-auto px-6 text-center">
+        <div class="hero-content">
+          <h1 class="text-5xl md:text-7xl font-bold mb-6 opacity-0 slide-up">
+            Software Engineer
+          </h1>
+          <div
+            class="text-2xl md:text-3xl mb-8 opacity-0 slide-up"
+            style="animation-delay: 0.2s"
+          >
+            <span class="inline-block mx-2">Linux Enthusiast</span>
+            <span class="text-blue-300">|</span>
+            <span class="inline-block mx-2">Open Source Enthusiast</span>
+          </div>
+          <p
+            class="text-xl md:text-2xl mb-12 opacity-0 slide-up max-w-3xl mx-auto"
+            style="animation-delay: 0.4s"
+          >
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+            blanditiis, doloribus harum libero commodi aut in nam non
+            consequuntur deserunt at veritatis nisi tempore odio, sapiente
+            architecto saepe? Modi, porro!
+          </p>
+          <div
+            class="flex justify-center space-x-4 opacity-0 slide-up"
+            style="animation-delay: 0.6s"
+          >
+            <a
+              href="#projects"
+              class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300"
+            >
+              Ver Proyectos
+            </a>
+            <a
+              href="#contact"
+              class="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300"
+            >
+              Contacto
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--about-->
+    <section id="about" class="py-20 bg-black/90 text-purple-900">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12">About Me</h2>
+        <div class="max-w-4xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-graduation-cap text-3xl mr-4"></i>
+                <h3 class="text-2xl font-semibold">Formación</h3>
+              </div>
+              <p class="text-gray-700">
+                Técnico en Computación e informática con sólida base en
+                fundamentos de sistemas y arquitectura de software.
+              </p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+              <div class="flex items-center mb-4">
+                <i class="fab fa-linux text-black text-3xl mr-4"></i>
+                <h3 class="text-2xl font-semibold">Experiencia Linux</h3>
+              </div>
+              <p class="text-gray-700">
+                2 años trabajando intensivamente con sistemas Linux,
+                automatización y administración de servidores.
+              </p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md md:col-span-2">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-network-wired text-3xl mr-4"></i>
+                <h3 class="text-2xl font-semibold">Intereses Técnicos</h3>
+              </div>
+              <p class="text-gray-700 mb-4">
+                Apasionada por los <strong>sistemas distribuidos</strong>,
+                arquitecturas escalables y observabilidad. Experiencia con
+                herramientas de monitoreo, CI/CD, DevOps y FOSS.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                  >Jenkins</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                  >Grafana</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                  >Prometheus</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                  >Linux</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                  >Docker</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                  >Open Source</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- proyects -->
+    <section id="projects" class="py-20 bg-gray-200">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12">Proyecto Destacado</h2>
+
+        <div class="max-w-6xl mx-auto">
+          <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+            <div class="p-8">
+              <div class="flex items-center justify-between mb-6">
+                <h3 class="text-3xl font-bold text-gray-900">
+                  Sistema de Monitoreo CI/CD
+                </h3>
+                <a
+                  href="https://github.com/tu-usuario/tu-repo"
+                  target="_blank"
+                  class="bg-gray-900 text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition duration-300 flex items-center"
+                >
+                  <i class="fab fa-github mr-2"></i>
+                  Ver Repositorio
+                </a>
+              </div>
+
+              <p class="text-gray-700 mb-6 text-lg">
+                Implementación completa de pipeline CI/CD con Jenkins, integrado
+                con stack de observabilidad usando Grafana y Prometheus para
+                monitoreo en tiempo real de métricas y logs, ocupando el
+                software de CASA y su pipeline en la version 6.6 en ambos casos.
+              </p>
+
+              <div class="mb-6">
+                <h4 class="text-xl font-semibold mb-3">
+                  Tecnologías Utilizadas:
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-red-100 text-red-800 px-4 py-2 rounded-lg font-medium"
+                    >Jenkins</span
+                  >
+                  <span
+                    class="bg-orange-100 text-orange-800 px-4 py-2 rounded-lg font-medium"
+                    >Grafana</span
+                  >
+                  <span
+                    class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-lg font-medium"
+                    >Prometheus</span
+                  >
+                  <span
+                    class="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg font-medium"
+                    >Docker</span
+                  >
+                  <span
+                    class="bg-green-100 text-green-800 px-4 py-2 rounded-lg font-medium"
+                    >Linux (ArchLinux, btw)</span
+                  >
+                </div>
+              </div>
+
+              <!-- Dashboard Screenshots Grid -->
+              <div class="dashboard-gallery">
+                <h4 class="text-xl font-semibold mb-4">
+                  Dashboards y Visualizaciones:
+                </h4>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                  <!--scrsht 1 -->
+                  <div
+                    class="dashboard-item bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300"
+                  >
+                    <div
+                      class="aspect-video flex items-center justify-center bg-gradient-to-br from-gray-200 to-gray-300"
+                    >
+                      <div class="text-center">
+                        <i
+                          class="fas fa-chart-line text-6xl text-gray-400 mb-2"
+                        ></i>
+                        <p class="text-gray-600 font-medium">
+                          Dashboard Principal
+                        </p>
+                        <p class="text-sm text-gray-500">
+                          Agrega tu screenshot aquí
+                        </p>
+                      </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                      <h5 class="font-semibold text-gray-900">
+                        Grafana - Vista General
+                      </h5>
+                      <p class="text-sm text-gray-600">
+                        Métricas de sistema y pipelines en tiempo real
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- scrsht 2 -->
+                  <div
+                    class="dashboard-item bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300"
+                  >
+                    <div
+                      class="aspect-video flex items-center justify-center bg-gradient-to-br from-blue-200 to-blue-300"
+                    >
+                      <div class="text-center">
+                        <i
+                          class="fas fa-tachometer-alt text-6xl text-blue-500 mb-2"
+                        ></i>
+                        <p class="text-blue-700 font-medium">
+                          Prometheus Metrics
+                        </p>
+                        <p class="text-sm text-blue-600">
+                          Agrega tu screenshot aquí
+                        </p>
+                      </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                      <h5 class="font-semibold text-gray-900">
+                        Prometheus - Targets
+                      </h5>
+                      <p class="text-sm text-gray-600">
+                        Endpoints monitoreados y estado de salud
+                      </p>
+                    </div>
+                  </div>
+
+                  <!--schst 3-->
+                  <div
+                    class="dashboard-item bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300"
+                  >
+                    <div
+                      class="aspect-video flex items-center justify-center bg-gradient-to-br from-red-200 to-red-300"
+                    >
+                      <div class="text-center">
+                        <i
+                          class="fas fa-code-branch text-6xl text-red-500 mb-2"
+                        ></i>
+                        <p class="text-red-700 font-medium">Jenkins Pipeline</p>
+                        <p class="text-sm text-red-600">
+                          Agrega tu screenshot aquí
+                        </p>
+                      </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                      <h5 class="font-semibold text-gray-900">
+                        Jenkins - CI/CD Pipeline
+                      </h5>
+                      <p class="text-sm text-gray-600">
+                        Ejecución de builds y despliegues automatizados
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- scrsht 4 -->
+                  <div
+                    class="dashboard-item bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300"
+                  >
+                    <div
+                      class="aspect-video flex items-center justify-center bg-gradient-to-br from-green-200 to-green-300"
+                    >
+                      <div class="text-center">
+                        <i
+                          class="fas fa-server text-6xl text-green-500 mb-2"
+                        ></i>
+                        <p class="text-green-700 font-medium">System Metrics</p>
+                        <p class="text-sm text-green-600">Agregar Scrrenshts</p>
+                      </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                      <h5 class="font-semibold text-gray-900">
+                        Resource Monitoring
+                      </h5>
+                      <p class="text-sm text-gray-600">
+                        CPU, memoria y performance del sistema
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="mt-6 bg-blue-50 border-l-4 border-blue-500 p-4 rounded"
+                >
+                  <p class="text-sm text-gray-700">
+                    <code class="bg-gray-200 px-2 py-1 rounded"
+                      >aspect-video</code
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-indigo-950 text-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12">Contacto</h2>
+        <div class="max-w-2xl mx-auto text-center">
+          <div class="flex flex-wrap justify-center gap-6">
+            <a
+              href="https://github.com/4m4p0l4x"
+              target="_blank"
+              class="contact-link bg-gray-900 text-white"
+            >
+              <i class="fab fa-github text-2xl"></i>
+              <span>GitHub</span>
+            </a>
+
+            <a
+              href="https://linkedin.com/"
+              target="_blank"
+              class="contact-link bg-blue-600 text-white"
+            >
+              <i class="fab fa-linkedin text-2xl"></i>
+              <span>LinkedIn</span>
+            </a>
+
+            <a
+              href="mailto:a.cancino1996gmail.com"
+              class="contact-link bg-red-500 text-white"
+            >
+              <i class="fas fa-envelope text-2xl"></i>
+              <span>Email</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-8">
+      <div class="container mx-auto px-6 text-center">
+        <p>
+          &copy; 2025 Portfolio. Construido con HTML, Tailwind CSS y JavaScript.
+        </p>
+        <p class="text-gray-400 mt-2">Deployed on GitHub Pages</p>
+      </div>
+    </footer>
+
+    <script src="/Scripts/scripts.js"></script>
+  </body>
+</html>
