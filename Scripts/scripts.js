@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileLinks = mobileMenu.querySelectorAll('a');
     
+
+    
     mobileMenuBtn.addEventListener('click', function() {
         mobileMenu.classList.toggle('hidden');
         
@@ -17,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    
+
     mobileLinks.forEach(link => {
         link.addEventListener('click', function() {
             mobileMenu.classList.add('hidden');
@@ -109,9 +113,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const dashboardItems = document.querySelectorAll('.dashboard-item');
     
     dashboardItems.forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function(e) {
+            e.stopPropagation();
             console.log('Dashboard item clicked:', this);
-            
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = '';
@@ -233,7 +237,39 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%c👨‍💻 Portfolio Developer', 'color: #2563eb; font-size: 20px; font-weight: bold;');
     console.log('%c¿Interesado en colaborar? Contáctame!', 'color: #4b5563; font-size: 14px;');
     console.log('%cGitHub: tu-usuario', 'color: #6b7280; font-size: 12px;');
-    
+
+    // ====================== MEDIA MODAL ====================== //
+
+const modal = document.getElementById('video-modal');
+const player = document.getElementById('video-modal-player');
+
+// videos
+document.querySelectorAll('video').forEach(v => {
+    v.addEventListener('click', () => {
+        const src = v.currentSrc || v.querySelector('source')?.src;
+        player.src = src;
+        modal.classList.remove('hidden');
+    });
+});
+
+// imágenes
+document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('click', () => {
+        const src = img.src;
+        player.src = src;
+        modal.classList.remove('hidden');
+    });
+});
+
+// cerrar con click fuera
+modal.addEventListener('click', (e) => {
+    if (e.target.id === 'video-modal') {
+        player.src = "";
+        modal.classList.add('hidden');
+    }
+});
+
+
 });
 
 function isMobile() {
@@ -250,7 +286,11 @@ function throttle(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
+
+
+    
 }
 
 console.log('Mobile:', isMobile());
 console.log('Screen:', window.innerWidth + 'x' + window.innerHeight);
+

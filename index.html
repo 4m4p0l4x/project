@@ -7,7 +7,7 @@
       name="description"
       content="Portfolio of a Software Engineer specialized in Linux and Open Source"
     />
-    <title>Amapola Cancino Portfolio</title>
+    <title>Take a Chance on Me</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -124,9 +124,9 @@
                 </h3>
               </div>
               <p class="text-gray-700 mb-4">
-                Passionate about distributed systems, scalable
-                architectures, and observability. Experience with monitoring
-                tools, CI/CD, DevOps, and FOSS.
+                Passionate about distributed systems, scalable architectures,
+                and observability. Experience with monitoring tools, CI/CD,
+                DevOps, and FOSS.
               </p>
               <div class="flex flex-wrap gap-2">
                 <span
@@ -219,53 +219,90 @@
               </div>
 
               <div class="grid md:grid-cols-2 gap-4">
-  <!-- Dashboard 1 -->
-  <div class="dashboard-item bg-gray-100 rounded-lg overflow-hidden shadow-md">
-    <div class="aspect-video">
-      <video controls class="w-full h-full object-cover">
-        <source src="Assets/Show Case sin CASA.webm" type="video/webm">
-      </video>
-    </div>
-    <div class="p-4 bg-white">
-      <h5 class="font-semibold text-purple-900">Demo Node Exporter</h5>
-      <p class="text-sm text-gray-600">Monitoreo básico del sistema</p>
-    </div>
-  </div>
+                <!-- Dashboard 1 -->
+                <div
+                  class="dashboard-item bg-gray-100 rounded-lg overflow-hidden shadow-md"
+                >
+                  <div class="aspect-video">
+                    <video controls class="w-full h-full object-cover">
+                      <source
+                        src="Assets/Show Case sin CASA.webm"
+                        type="video/webm"
+                      />
+                    </video>
+                  </div>
+                  <div class="p-4 bg-white">
+                    <h5 class="font-semibold text-purple-900">
+                      Demo Node Exporter
+                    </h5>
+                    <p class="text-sm text-gray-600">
+                      Monitoreo básico del sistema
+                    </p>
+                  </div>
+                </div>
 
-  <!-- Dashboard 2 -->
-  <div class="dashboard-item bg-gray-100 rounded-lg overflow-hidden shadow-md">
-    <div class="aspect-video">
-      <video controls class="w-full h-full object-cover">
-        <source src="Assets/Demo con todo.webm" type="video/webm">
-      </video>
-    </div>
-    <div class="p-4 bg-white">
-      <h5 class="font-semibold text-purple-900">Running full (local)  CASA Pipeline</h5>
-      <p class="text-sm text-gray-600">Jenkins + Grafana + Prometheus</p>
-    </div>
-  </div>
+                <!-- Dashboard 2 -->
+                <div
+                  class="dashboard-item bg-gray-100 rounded-lg overflow-hidden shadow-md"
+                >
+                  <div class="aspect-video">
+                    <video controls class="w-full h-full object-cover">
+                      <source
+                        src="Assets/Demo con todo.webm"
+                        type="video/webm"
+                      />
+                    </video>
+                  </div>
+                  <div class="p-4 bg-white">
+                    <h5 class="font-semibold text-purple-900">
+                      Running full (local) CASA Pipeline
+                    </h5>
+                    <p class="text-sm text-gray-600">
+                      Jenkins + Grafana + Prometheus
+                    </p>
+                  </div>
+                </div>
 
-  <!-- Screenshots -->
-  <div class="dashboard-item bg-gray-100 rounded-lg overflow-hidden shadow-md">
-    <div class="aspect-video">
-      <img src="Assets/metricasGrafana.png" alt="Grafana" class="w-full h-full object-cover">
-    </div>
-    <div class="p-4 bg-white">
-      <h5 class="font-semibold text-purple-900">Grafana Dashboard</h5>
-      <p class="text-sm text-gray-600">Reat time metrics</p>
-    </div>
-  </div>
+                <!-- Screenshots -->
+                <div
+                  class="dashboard-item bg-gray-100 rounded-lg overflow-hidden shadow-md"
+                >
+                  <div class="aspect-video">
+                    <img
+                      src="Assets/metricasGrafana.png"
+                      alt="Grafana"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="p-4 bg-white">
+                    <h5 class="font-semibold text-purple-900">
+                      Grafana Dashboard
+                    </h5>
+                    <p class="text-sm text-gray-600">Reat time metrics</p>
+                  </div>
+                </div>
 
-  <div class="dashboard-item bg-gray-100 rounded-lg overflow-hidden shadow-md">
-    <div class="aspect-video">
-      <img src="Assets/pipeline.png" alt="Jenkins" class="w-full h-full object-cover">
-    </div>
-    <div class="p-4 bg-white">
-      <h5 class="font-semibold text-purple-900">Jenkins Pipeline</h5>
-      <p class="text-sm text-gray-600">Automated CI/CD</p>
-    </div>
-  </div>
-</div>
+                <div
+                  class="dashboard-item bg-gray-100 rounded-lg overflow-hidden shadow-md"
+                >
+                  <div class="aspect-video">
+                    <img
+                      src="Assets/pipeline.png"
+                      alt="Jenkins"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="p-4 bg-white">
+                    <h5 class="font-semibold text-purple-900">
+                      Jenkins Pipeline
+                    </h5>
+                    <p class="text-sm text-gray-600">Automated CI/CD</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -312,6 +349,21 @@
         <p class="text-gray-400 mt-2">Deployed on GitHub Pages</p>
       </div>
     </footer>
+
+    <!--adding modal stuffs/media related-->
+    <!--TO DO: Re factor this whole stuff, to messy-->
+
+    <div
+      id="video-modal"
+      class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+    >
+      <video
+        id="video-modal-player"
+        class="w-11/12 max-w-4xl rounded shadow-lg"
+        controls
+        autoplay
+      ></video>
+    </div>
 
     <script src="/Scripts/scripts.js"></script>
   </body>
