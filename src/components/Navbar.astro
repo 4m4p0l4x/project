@@ -2,41 +2,36 @@
 const navLinks = [
   { href: '#hero', label: 'Home' },
   { href: '#about', label: 'About Me' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#projects', label: 'Projects' },
   { href: '#contact', label: 'Contact' },
 ];
 ---
 
 <nav class="fixed top-0 w-full bg-black shadow-md z-50 transition-shadow duration-300" id="navbar">
   <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <a href="#" class="text-2xl font-bold text-purple-900 tracking-tight">Portfolio</a>
-    
+    <a href="#hero" class="text-2xl font-bold text-purple-900 tracking-tight" aria-label="Portfolio — back to top">Portfolio</a>
+
     <!-- Desktop Navigation -->
-    <div class="hidden md:flex items-center space-x-6">
+    <div class="hidden md:flex items-center space-x-8">
       {navLinks.map((link) => (
-        <a href={link.href} class="nav-link">
-          {link.label}
-        </a>
+        <a href={link.href} class="nav-link">{link.label}</a>
       ))}
-      <a 
-        href="/assets/docs/CV_Amapola_Cancino_Fullstack.pdf" 
-        target="_blank" 
+      <a
+        href="/assets/docs/CV_Amapola_Cancino_Fullstack.pdf"
+        target="_blank"
         rel="noopener noreferrer"
-        class="nav-link flex items-center gap-1 font-semibold"
+        class="nav-link font-semibold"
       >
-        <span>CV</span>
-        <i class="fas fa-file-pdf text-xs"></i>
+        CV
       </a>
     </div>
 
     <!-- Mobile Hamburger Toggle -->
-    <button 
-      id="mobile-menu-btn" 
-      class="md:hidden text-gray-200 hover:text-white p-2 focus:outline-none" 
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden text-gray-200 hover:text-white p-2 focus:outline-none"
       aria-label="Toggle navigation menu"
     >
-      <i class="fas fa-bars text-2xl"></i>
+      <i class="fas fa-bars text-xl"></i>
     </button>
   </div>
 
@@ -47,13 +42,13 @@ const navLinks = [
         {link.label}
       </a>
     ))}
-    <a 
-      href="/assets/docs/CV_Amapola_Cancino_Fullstack.pdf" 
-      target="_blank" 
-      rel="noopener noreferrer" 
-      class="block px-6 py-3 text-purple-900 hover:bg-gray-100 font-medium"
+    <a
+      href="/assets/docs/CV_Amapola_Cancino_Fullstack.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="block px-6 py-3 text-purple-900 hover:bg-gray-100 font-semibold"
     >
-      <i class="fas fa-file-pdf mr-2"></i> Download CV
+      CV
     </a>
   </div>
 </nav>
@@ -68,13 +63,8 @@ const navLinks = [
       mobileMenu.classList.toggle('hidden');
       const icon = mobileMenuBtn.querySelector('i');
       if (icon) {
-        if (mobileMenu.classList.contains('hidden')) {
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
-        } else {
-          icon.classList.remove('fa-bars');
-          icon.classList.add('fa-times');
-        }
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        icon.className = isOpen ? 'fas fa-times text-xl' : 'fas fa-bars text-xl';
       }
     });
 
@@ -82,42 +72,30 @@ const navLinks = [
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
         const icon = mobileMenuBtn.querySelector('i');
-        if (icon) {
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
-        }
+        if (icon) icon.className = 'fas fa-bars text-xl';
       });
     });
   }
 
-  // Navbar scroll styling
+  // Scroll shadow
   window.addEventListener('scroll', () => {
     if (navbar) {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
     }
   });
 
-  // Smooth scroll with offset for fixed navbar
+  // Smooth scroll with navbar offset
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (e) => {
       const targetId = link.getAttribute('href');
       if (!targetId || targetId === '#') return;
-
       const target = document.querySelector(targetId);
       if (target) {
         e.preventDefault();
-        const navbarHeight = navbar ? navbar.offsetHeight : 0;
-        const targetPos = target.getBoundingClientRect().top + window.scrollY - navbarHeight;
-        window.scrollTo({
-          top: targetPos,
-          behavior: 'smooth'
-        });
+        const offset = navbar ? navbar.offsetHeight : 0;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
       }
     });
   });
 </script>
-

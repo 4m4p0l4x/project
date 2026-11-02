@@ -1,42 +1,46 @@
 ---
+import { Image } from 'astro:assets';
+import placeholderImg from '../assets/img/metricas-grafana.png';
 ---
 
-<dialog 
-  id="media-dialog" 
-  class="fixed inset-0 m-auto p-0 bg-transparent rounded-xl shadow-2xl max-w-4xl w-[92vw] max-h-[90vh] z-50 backdrop:bg-black/85 backdrop:backdrop-blur-sm overflow-hidden"
+<dialog
+  id="media-dialog"
+  class="fixed inset-0 m-auto p-0 bg-transparent rounded-xl shadow-2xl w-[96vw] max-w-7xl h-[94vh] z-50 backdrop:bg-black/92 backdrop:backdrop-blur-sm overflow-hidden"
   aria-labelledby="dialog-title"
 >
-  <div class="relative bg-gray-950 border border-gray-800 rounded-xl flex flex-col overflow-hidden">
-    <!-- Header with title & close button -->
-    <div class="flex items-center justify-between px-5 py-3 border-b border-gray-800 bg-gray-900/90 text-white">
-      <h4 id="dialog-title" class="font-semibold text-base sm:text-lg text-purple-300 truncate pr-4">
+  <div class="relative bg-gray-950 border border-gray-800 rounded-xl flex flex-col h-full overflow-hidden">
+    <!-- Header bar -->
+    <div class="flex items-center justify-between px-5 py-3 border-b border-gray-800 bg-gray-900/95 text-white shrink-0">
+      <h4 id="dialog-title" class="font-semibold text-sm sm:text-base text-purple-300 truncate pr-4">
         Media Preview
       </h4>
-      <button 
-        id="dialog-close-btn" 
-        class="text-gray-400 hover:text-white text-2xl font-bold leading-none p-1 rounded hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      <button
+        id="dialog-close-btn"
+        class="text-gray-400 hover:text-white text-3xl font-bold leading-none w-9 h-9 flex items-center justify-center rounded hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 shrink-0 cursor-pointer"
         aria-label="Close preview"
       >
         &times;
       </button>
     </div>
 
-    <!-- Media display container -->
-    <div class="p-2 sm:p-4 flex items-center justify-center bg-black min-h-[300px] max-h-[78vh]">
-      <video 
-        id="dialog-video" 
-        controls 
-        playsinline 
-        class="w-full max-h-[75vh] rounded object-contain hidden"
+    <!-- Media container: fills the remaining height -->
+    <div class="flex-1 flex items-center justify-center bg-black overflow-hidden p-2">
+      <video
+        id="dialog-video"
+        controls
+        playsinline
+        class="w-full h-full rounded object-contain hidden"
+        style="max-height: calc(94vh - 52px);"
       >
         Your browser does not support the video tag.
       </video>
 
-      <img 
-        id="dialog-image" 
-        src="" 
-        alt="" 
-        class="w-full max-h-[75vh] object-contain rounded hidden" 
+      <Image
+        id="dialog-image"
+        src={placeholderImg}
+        alt="Expanded media preview"
+        class="w-full h-full object-contain rounded hidden"
+        style="max-height: calc(94vh - 52px);"
       />
     </div>
   </div>
@@ -58,29 +62,21 @@
       dialogVideo.classList.add('hidden');
     }
     if (dialogImage) {
-      dialogImage.src = '';
       dialogImage.classList.add('hidden');
     }
-    if (dialog.open) {
-      dialog.close();
-    }
+    if (dialog.open) dialog.close();
   }
 
   function openMedia(src: string, type: string, title: string) {
     if (!dialog) return;
-
-    if (dialogTitle) {
-      dialogTitle.textContent = title || 'Media Preview';
-    }
+    if (dialogTitle) dialogTitle.textContent = title || 'Media Preview';
 
     if (type === 'video' && dialogVideo) {
       if (dialogImage) dialogImage.classList.add('hidden');
       dialogVideo.src = src;
       dialogVideo.classList.remove('hidden');
       dialog.showModal();
-      dialogVideo.play().catch(() => {
-        // Autoplay may be restricted by browser policy; user can click play
-      });
+      dialogVideo.play().catch(() => {});
     } else if (type === 'image' && dialogImage) {
       if (dialogVideo) {
         dialogVideo.pause();
@@ -94,27 +90,21 @@
     }
   }
 
-  // Bind close events
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeMedia);
-  }
+  if (closeBtn) closeBtn.addEventListener('click', closeMedia);
 
   if (dialog) {
-    // Backdrop click: native dialog clicks target the dialog itself when backdrop is clicked
+    // Backdrop click closes the dialog
     dialog.addEventListener('click', (e) => {
       const rect = dialog.getBoundingClientRect();
-      const isInDialog = (
+      const inside =
         rect.top <= e.clientY &&
         e.clientY <= rect.top + rect.height &&
         rect.left <= e.clientX &&
-        e.clientX <= rect.left + rect.width
-      );
-      if (!isInDialog) {
-        closeMedia();
-      }
+        e.clientX <= rect.left + rect.width;
+      if (!inside) closeMedia();
     });
 
-    // Cleanup on native close (such as Esc key)
+    // Cleanup on native ESC close
     dialog.addEventListener('close', () => {
       if (dialogVideo) {
         dialogVideo.pause();
@@ -123,28 +113,22 @@
         dialogVideo.classList.add('hidden');
       }
       if (dialogImage) {
-        dialogImage.src = '';
         dialogImage.classList.add('hidden');
       }
     });
   }
 
-  // Attach click listeners to all lightbox trigger elements across all project cards
   function initLightboxTriggers() {
     document.querySelectorAll<HTMLElement>('[data-lightbox-src]').forEach((trigger) => {
       trigger.addEventListener('click', () => {
         const src = trigger.getAttribute('data-lightbox-src');
         const type = trigger.getAttribute('data-lightbox-type') || 'image';
         const title = trigger.getAttribute('data-lightbox-title') || '';
-        if (src) {
-          openMedia(src, type, title);
-        }
+        if (src) openMedia(src, type, title);
       });
     });
   }
 
-  // Initialize on load and on Astro view transitions if used
   initLightboxTriggers();
   document.addEventListener('astro:page-load', initLightboxTriggers);
 </script>
-

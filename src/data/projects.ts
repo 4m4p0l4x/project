@@ -1,6 +1,11 @@
+import type { ImageMetadata } from 'astro';
+import grafanaImg from '../assets/img/metricas-grafana.png';
+import pipelineImg from '../assets/img/pipeline.png';
+
 export interface ProjectMedia {
   type: 'video' | 'image';
   src: string;
+  image?: ImageMetadata;
   title: string;
   subtitle: string;
 }
@@ -49,16 +54,17 @@ export const projects: ProjectItem[] = [
       {
         type: "image",
         src: "/assets/img/metricas-grafana.png",
+        image: grafanaImg,
         title: "Grafana Dashboard",
         subtitle: "Real time metrics"
       },
       {
         type: "image",
         src: "/assets/img/pipeline.png",
+        image: pipelineImg,
         title: "Jenkins Pipeline",
         subtitle: "Automated CI/CD"
       }
     ]
   }
 ];
-

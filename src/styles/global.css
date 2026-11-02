@@ -14,6 +14,7 @@
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
+    overflow-x: hidden;
   }
 }
 
@@ -79,20 +80,22 @@
   background-size: cover;
   background-position: center;
   position: relative;
+  overflow: hidden;
 }
 
+/* Subtle animated dot-grid on top of Hubble image — contained within the hero */
 #hero::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
   background-size: 50px 50px;
   animation: moveBackground 20s linear infinite;
-  opacity: 0.3;
+  opacity: 0.25;
   pointer-events: none;
+  z-index: 0;
 }
 
 /* Dashboard & Projects */
