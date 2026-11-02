@@ -55,6 +55,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -69,6 +70,7 @@
   0% {
     transform: translate(0, 0);
   }
+
   100% {
     transform: translate(50px, 50px);
   }
@@ -76,7 +78,7 @@
 
 /* Hero Section */
 #hero {
-  background-image: url('/assets/img/hubble-lmc-n44c-potw2536a.png');
+  background-image: var(--hero-image);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -158,6 +160,7 @@ button:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -169,14 +172,15 @@ button:focus-visible {
 }
 
 @media print {
+
   #navbar,
   #mobile-menu,
   footer,
   #scroll-to-top {
     display: none !important;
   }
+
   section {
     page-break-inside: avoid;
   }
 }
-

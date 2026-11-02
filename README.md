@@ -24,3 +24,15 @@ If you find this, you are a picky person! Just kidding, i just wanted to see if 
 And a big thank you to all the people that helped me get here, you know who you are.
 
 </details>
+
+## Deployment
+
+The site is built as static output with Bun:
+
+```bash
+bun install --frozen-lockfile
+bun run build
+```
+
+- **GitHub Pages:** merge to `main`. The workflow in `.github/workflows/deploy.yml` publishes `dist/` at `https://4m4p0l4x.github.io/project/`. Enable GitHub Pages with **GitHub Actions** as the source in the repository settings.
+- **Netlify:** import the repository. `netlify.toml` configures `bun run build` and `dist` as the publish directory. Netlify serves the site from the domain root.

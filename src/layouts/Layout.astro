@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
   title?: string;
@@ -7,9 +7,10 @@ interface Props {
 }
 
 const {
-  title = 'Take a Chance on Me | Anahi Amapola Cancino',
-  description = 'Portfolio of a Software Developer specialized in Mobile, Backend, Linux, and Open Source'
+  title = "Take a Chance on Me | Anahi Amapola Cancino",
+  description = "Portfolio of a Software Developer specialized in Mobile, Backend, Linux, and Open Source",
 } = Astro.props;
+const assetBase = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -20,20 +21,25 @@ const {
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    
+
     <!-- Favicon -->
-    <link rel="icon" href="/assets/icons/icon.png" type="image/x-icon" />
+    <link
+      rel="icon"
+      href={`${assetBase}assets/icons/icon.png`}
+      type="image/x-icon"
+    />
 
     <!-- Font Awesome Icons -->
-    <link 
-      rel="stylesheet" 
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-      crossorigin="anonymous" 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="bg-gray-50 text-gray-900 antialiased selection:bg-purple-900 selection:text-white">
+  <body
+    class="bg-gray-50 text-gray-900 antialiased selection:bg-purple-900 selection:text-white"
+  >
     <slot />
   </body>
 </html>
-

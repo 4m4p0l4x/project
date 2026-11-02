@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { project } = Astro.props;
+const getMediaUrl = (src: string) => `${import.meta.env.BASE_URL}${src.replace(/^\//, '')}`;
 ---
 
 <article class="bg-white rounded-lg shadow-xl overflow-hidden border border-gray-100">
@@ -65,10 +66,11 @@ const { project } = Astro.props;
     <!-- Media Display Grid (2x2) -->
     <div class="grid md:grid-cols-2 gap-6">
       {project.media.map((item) => (
+        <Fragment>
         <button
           type="button"
           class="dashboard-item text-left w-full bg-gray-100 rounded-lg overflow-hidden shadow-md group focus:outline-none focus:ring-2 focus:ring-purple-600 transition-all cursor-pointer"
-          data-lightbox-src={item.src}
+          data-lightbox-src={getMediaUrl(item.src)}
           data-lightbox-type={item.type}
           data-lightbox-title={item.title}
           aria-label={`Open ${item.title} in preview modal`}
@@ -83,7 +85,7 @@ const { project } = Astro.props;
                   aria-label={`Video thumbnail: ${item.title}`}
                   class="w-full h-full object-cover pointer-events-none"
                 >
-                  <source src={item.src} type="video/webm" />
+                  <source src={getMediaUrl(item.src)} type="video/webm" />
                 </video>
                 <!-- Play overlay indicator -->
                 <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 flex items-center justify-center transition-all">
@@ -135,6 +137,7 @@ const { project } = Astro.props;
             </p>
           </div>
         </button>
+        </Fragment>
       ))}
     </div>
   </div>
