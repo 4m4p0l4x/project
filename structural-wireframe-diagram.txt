@@ -1,36 +1,59 @@
 +-----------------------------------------------------------------------+
-|  [Portfolio]                       [Home]  [About]  [Projects] [Contact]
+|  [Portfolio]                       [Home]  [About]  [Contact]        |
 |  (Fixed Top Navbar, dark, shadows on scroll, mobile hamburger)        |
 +-----------------------------------------------------------------------+
 |                                                                       |
-|  [HERO SECTION]                                                       |
-|  Background: Space/Hubble texture + deep gradient                     |
+|  [HERO SECTION] (Dark - Hubble Image + Gradient)                      |
 |                                                                       |
 |    Anahi Amapola Cancino Santelices — Software Developer              |
-|    "Linux Enthusiast | Open Source Enthusiast"                        |
+|    "Mobile and Fullstack developer | Systems & Open Source"           |
 |                                                                       |
-|    [ View Projects (Button) ]     [ Contact (Outline Button) ]        |
+|    [Presentation summary: mobile consulting, backend, FOSS maintainer]|
+|                                                                       |
+|    [ My Experience (Button) ]             [ Contact (Outline Button) ]|
+|                       [ View Projects (Button) ]                      |
 |                                                                       |
 +-----------------------------------------------------------------------+
 |                                                                       |
-|  [ABOUT ME]                                                           |
+|  [ABOUT ME] (Light - bg-gray-200 with white cards)                    |
 |                                                                       |
 |  +-----------------------------+  +-----------------------------+     |
 |  | [Icon] Education            |  | [Icon] Linux Experience     |     |
 |  | Tech in CS & Informatics    |  | 2 yrs Linux, automation,    |     |
-|  | Systems architecture        |  | server administration       |     |
+|  | Kotlin, React, FOSS journey |  | Ansible, distro packaging   |     |
 |  +-----------------------------+  +-----------------------------+     |
 |  +--------------------------------------------------------------+     |
 |  | [Icon] Technical Interests (Full Width Card)                 |     |
-|  | Distributed systems, observability, CI/CD, DevOps, FOSS      |     |
+|  | Distributed systems, observability, CI/CD, mobile & fullstack|     |
 |  | [Jenkins] [Grafana] [Prometheus] [Linux] [Docker] [FOSS]     |     |
 |  +--------------------------------------------------------------+     |
 |                                                                       |
 +-----------------------------------------------------------------------+
 |                                                                       |
-|  [FEATURED PROJECT]                                                   |
+|  [MY EXPERIENCE] (Dark - bg-black/90 with clean cards)                |
 |                                                                       |
 |  +--------------------------------------------------------------+     |
+|  | Fullstack Developer — Freelance                  2024–Pres   |     |
+|  | Web apps, REST APIs, client deployments, maintenance         |     |
+|  | [Python/FastAPI] [Laravel] [React/TS] [Node.js] [REST APIs]  |     |
+|  +--------------------------------------------------------------+     |
+|  +--------------------------------------------------------------+     |
+|  | Mobile Software Developer (Internship) — Sonda S.A. 2026     |     |
+|  | End-to-end mobile features, Clean Architecture, BLoC/Cubit   |     |
+|  | [Flutter/Mobile] [Clean Arch] [BLoC] [Dio/REST] [SOLID] [Git]|     |
+|  +--------------------------------------------------------------+     |
+|  +--------------------------------------------------------------+     |
+|  | Sysadmin — PCLeaks                               2024        |     |
+|  | RHEL & Ubuntu Server lab administration, Ansible automation  |     |
+|  | [RHEL] [Ubuntu Server] [Ansible] [Sysadmin] [Automation]     |     |
+|  +--------------------------------------------------------------+     |
+|                                                                       |
++-----------------------------------------------------------------------+
+|                                                                       |
+|  [FEATURED PROJECTS] (Light - bg-gray-200 with modular card container)|
+|                                                                       |
+|  +--------------------------------------------------------------+     |
+|  | <article class="bg-white rounded-lg shadow-xl">              |     |
 |  | CI/CD Monitoring System                   [ GitHub Repo -> ] |     |
 |  | Observability stack (Jenkins + Grafana + Prometheus) for     |     |
 |  | CASA 6.6 pipeline.                                           |     |
@@ -40,23 +63,23 @@
 |  | Media Display Grid (2 x 2):                                  |     |
 |  | +---------------------------+  +---------------------------+ |     |
 |  | | [Video] Node Exporter     |  | [Video] Full CASA Pipeline| |     |
-|  | | Monitoreo básico         |  | Jenkins + Grafana + Prom. | |     |
 |  | +---------------------------+  +---------------------------+ |     |
 |  | +---------------------------+  +---------------------------+ |     |
 |  | | [Image] Grafana Dashboard |  | [Image] Jenkins Pipeline  | |     |
-|  | | Real time metrics        |  | Automated CI/CD           | |     |
 |  | +---------------------------+  +---------------------------+ |     |
+|  | </article>                                                   |     |
 |  +--------------------------------------------------------------+     |
+|  (Future projects: drop another <article> card into the container)    |
 |                                                                       |
 +-----------------------------------------------------------------------+
 |                                                                       |
-|  [CONTACT]                                                            |
+|  [CONTACT] (Dark - bg-indigo-950)                                     |
 |                                                                       |
-|      [ [Icon] GitHub ]    [ [Icon] LinkedIn ]    [ [Icon] Email ]     |
+|   [ [Icon] GitHub ] [ [Icon] LinkedIn ] [ [Icon] Email ] [ [Icon] CV ]|
 |                                                                       |
 +-----------------------------------------------------------------------+
 |  [FOOTER]                                                             |
 |  © 2025 Portfolio · Deployed on GitHub Pages                          |
 +-----------------------------------------------------------------------+
-|  [Floating Overlays: Lightbox Video Modal | Scroll-to-Top Button]     |
+|  [Floating Overlays: Lightbox Media Modal | Scroll-to-Top Button]     |
 +-----------------------------------------------------------------------+

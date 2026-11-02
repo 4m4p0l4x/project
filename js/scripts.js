@@ -123,26 +123,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    function typeWriter(element, text, speed = 50) {
-        let i = 0;
-        element.textContent = '';
+    // Commented by now, didn't like it lol
+    // function typeWriter(element, text, speed = 90) {
+    //     let i = 0;
+    //     element.textContent = '';
         
-        function type() {
-            if (i < text.length) {
-                element.textContent += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
-            }
-        }
+    //     function type() {
+    //         if (i < text.length) {
+    //             element.textContent += text.charAt(i);
+    //             i++;
+    //             setTimeout(type, speed);
+    //         }
+    //     }
         
-        type();
-    }
+    //     type();
+    // }
     
-     const heroTitle = document.querySelector('#hero h1');
-     if (heroTitle) {
-         const originalText = heroTitle.textContent;
-         typeWriter(heroTitle, originalText, 70);
-     }
+    // const heroTitle = document.querySelector('#hero h1');
+    // if (heroTitle) {
+    //     const originalText = heroTitle.textContent;
+    //     typeWriter(heroTitle, originalText, 70);
+    // }
        
     const emailLink = document.querySelector('a[href^="mailto:"]');
     
@@ -238,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%c¿Interesado en colaborar? Contáctame!', 'color: #4b5563; font-size: 14px;');
     console.log('%cGitHub: 4m4p0l4x', 'color: #6b7280; font-size: 12px;');
 
-    // ====================== MEDIA MODAL ====================== //
+    //MEDIA MODAL//
     const mediaModal = document.getElementById('media-modal');
     const modalVideo = document.getElementById('media-modal-video');
     const modalImage = document.getElementById('media-modal-image');
