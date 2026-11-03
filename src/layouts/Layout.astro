@@ -10,7 +10,7 @@ const {
   title = "Take a Chance on Me | Anahi Amapola Cancino",
   description = "Portfolio of a Software Developer specialized in Mobile, Backend, Linux, and Open Source",
 } = Astro.props;
-const assetBase = import.meta.env.BASE_URL;
+const assetBase = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
 ---
 
 <!doctype html>
@@ -26,7 +26,7 @@ const assetBase = import.meta.env.BASE_URL;
     <link
       rel="icon"
       href={`${assetBase}assets/icons/icon.png`}
-      type="image/x-icon"
+      type="image/png"
     />
 
     <!-- Font Awesome Icons -->
