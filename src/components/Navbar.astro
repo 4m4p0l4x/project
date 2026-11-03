@@ -1,0 +1,124 @@
+---
+const navLinks = [
+  { href: "#hero", label: "Home" },
+  { href: "#about", label: "About Me" },
+  { href: "#contact", label: "Contact" },
+];
+const cvUrl = `${import.meta.env.BASE_URL}assets/docs/CV_Amapola_Cancino_Fullstack.pdf`;
+---
+
+<nav
+  class="fixed top-0 w-full bg-black shadow-md z-50 transition-shadow duration-300"
+  id="navbar"
+>
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a
+      href="#hero"
+      class="text-2xl font-bold text-purple-900 tracking-tight"
+      aria-label="Portfolio — back to top">Portfolio</a
+    >
+
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center space-x-8">
+      {
+        navLinks.map((link) => (
+          <a href={link.href} class="nav-link">
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href={cvUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav-link font-semibold"
+      >
+        CV
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger Toggle -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden text-gray-200 hover:text-white p-2 focus:outline-none"
+      aria-label="Toggle navigation menu"
+    >
+      <i class="fas fa-bars text-xl"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-white border-t border-gray-200 shadow-xl"
+  >
+    {
+      navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="block px-6 py-3 text-gray-800 hover:bg-gray-100 font-medium"
+        >
+          {link.label}
+        </a>
+      ))
+    }
+    <a
+      href={cvUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="block px-6 py-3 text-purple-900 hover:bg-gray-100 font-semibold"
+    >
+      CV
+    </a>
+  </div>
+</nav>
+
+<script>
+  const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const navbar = document.getElementById("navbar");
+
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+      const icon = mobileMenuBtn.querySelector("i");
+      if (icon) {
+        const isOpen = !mobileMenu.classList.contains("hidden");
+        icon.className = isOpen
+          ? "fas fa-times text-xl"
+          : "fas fa-bars text-xl";
+      }
+    });
+
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        const icon = mobileMenuBtn.querySelector("i");
+        if (icon) icon.className = "fas fa-bars text-xl";
+      });
+    });
+  }
+
+  // Scroll shadow
+  window.addEventListener("scroll", () => {
+    if (navbar) {
+      navbar.classList.toggle("scrolled", window.scrollY > 50);
+    }
+  });
+
+  // Smooth scroll with navbar offset
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const targetId = link.getAttribute("href");
+      if (!targetId || targetId === "#") return;
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        const offset = navbar ? navbar.offsetHeight : 0;
+        const top =
+          target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    });
+  });
+</script>

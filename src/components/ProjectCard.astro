@@ -1,0 +1,144 @@
+---
+import { Image } from 'astro:assets';
+import type { ProjectItem } from '../data/projects';
+
+interface Props {
+  project: ProjectItem;
+}
+
+const { project } = Astro.props;
+const getMediaUrl = (src: string) => `${import.meta.env.BASE_URL}${src.replace(/^\//, '')}`;
+---
+
+<article class="bg-white rounded-lg shadow-xl overflow-hidden border border-gray-100">
+  <div class="p-6 sm:p-8">
+    <!-- Header: Title and GitHub link -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+      <h3 class="text-3xl font-bold text-purple-900 tracking-tight">
+        {project.title}
+      </h3>
+      
+      <div class="flex items-center gap-3">
+        {project.githubUrl && (
+          <a 
+            href={project.githubUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition duration-300 flex items-center text-sm font-semibold shadow"
+          >
+            <i class="fab fa-github mr-2 text-lg"></i>
+            GitHub Repo
+          </a>
+        )}
+        {project.liveUrl && (
+          <a 
+            href={project.liveUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition duration-300 flex items-center text-sm font-semibold shadow"
+          >
+            <i class="fas fa-external-link-alt mr-2"></i>
+            Live Demo
+          </a>
+        )}
+      </div>
+    </div>
+
+    <!-- Description -->
+    <p class="text-gray-700 mb-6 text-base sm:text-lg leading-relaxed">
+      {project.description}
+    </p>
+
+    <!-- Technologies Used -->
+    <div class="mb-8">
+      <h4 class="text-sm uppercase tracking-wider font-bold mb-3 text-purple-900">
+        Technologies Used:
+      </h4>
+      <div class="flex flex-wrap gap-2">
+        {project.technologies.map((tech) => (
+          <span class={`${tech.badgeClass} px-3 py-1.5 rounded-lg font-medium text-sm`}>
+            {tech.name}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Media Display Grid (2x2) -->
+    <div class="grid md:grid-cols-2 gap-6">
+      {project.media.map((item) => (
+        <Fragment>
+        <button
+          type="button"
+          class="dashboard-item text-left w-full bg-gray-100 rounded-lg overflow-hidden shadow-md group focus:outline-none focus:ring-2 focus:ring-purple-600 transition-all cursor-pointer"
+          data-lightbox-src={getMediaUrl(item.src)}
+          data-lightbox-type={item.type}
+          data-lightbox-title={item.title}
+          aria-label={`Open ${item.title} in preview modal`}
+        >
+          <div class="aspect-video relative overflow-hidden bg-gray-900 flex items-center justify-center">
+            {item.type === 'video' ? (
+              <>
+                <video 
+                  preload="metadata" 
+                  muted 
+                  playsinline
+                  aria-label={`Video thumbnail: ${item.title}`}
+                  class="w-full h-full object-cover pointer-events-none"
+                >
+                  <source src={getMediaUrl(item.src)} type="video/webm" />
+                </video>
+                <!-- Play overlay indicator -->
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 flex items-center justify-center transition-all">
+                  <div class="w-12 h-12 rounded-full bg-purple-900/90 text-white flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-purple-800 transition-transform">
+                    <i class="fas fa-play text-sm ml-0.5"></i>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                {item.image ? (
+                  <Image 
+                    src={item.image} 
+                    alt={item.title} 
+                    class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                    loading="lazy" 
+                  />
+                ) : (
+                  <Image 
+                    src={item.src} 
+                    alt={item.title} 
+                    width={800} 
+                    height={450} 
+                    class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                    loading="lazy" 
+                  />
+                )}
+                <!-- Zoom overlay indicator -->
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div class="w-12 h-12 rounded-full bg-purple-900/90 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <i class="fas fa-search-plus text-sm"></i>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+
+          <div class="p-4 bg-white border-t border-gray-100 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <h5 class="font-semibold text-purple-900 group-hover:text-purple-700 transition-colors">
+                {item.title}
+              </h5>
+              <span class="text-xs text-purple-900/60 font-medium">
+                {item.type === 'video' ? 'Play Video' : 'View Image'}
+              </span>
+            </div>
+            <p class="text-sm text-gray-600 mt-1">
+              {item.subtitle}
+            </p>
+          </div>
+        </button>
+        </Fragment>
+      ))}
+    </div>
+  </div>
+</article>

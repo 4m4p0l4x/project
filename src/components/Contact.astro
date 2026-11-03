@@ -1,0 +1,83 @@
+---
+const cvUrl = `${import.meta.env.BASE_URL}assets/docs/CV_Amapola_Cancino_Fullstack.pdf`;
+---
+
+<section id="contact" class="py-12 bg-indigo-950 text-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-8 tracking-tight">Contact</h2>
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="flex flex-wrap justify-center gap-6">
+        <!-- GitHub -->
+        <a
+          href="https://github.com/4m4p0l4x"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-link bg-gray-900 text-white hover:bg-gray-800 shadow-md"
+        >
+          <i class="fab fa-github text-2xl"></i>
+          <span>GitHub</span>
+        </a>
+
+        <!-- LinkedIn -->
+        <a
+          href="https://www.linkedin.com/in/amapola-cancino-792210253"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-link bg-blue-600 text-white hover:bg-blue-700 shadow-md"
+        >
+          <i class="fab fa-linkedin text-2xl"></i>
+          <span>LinkedIn</span>
+        </a>
+
+        <!-- Email (with copy to clipboard) -->
+        <button
+          id="email-contact-btn"
+          data-email="a.cancino1996@gmail.com"
+          type="button"
+          class="contact-link bg-red-600 text-white hover:bg-red-700 shadow-md cursor-pointer"
+          title="Click to copy email address"
+        >
+          <i class="fas fa-envelope text-2xl"></i>
+          <span id="email-label">Email</span>
+        </button>
+
+        <!-- CV / Resume PDF -->
+        <a
+          href={cvUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-link bg-purple-900 text-white hover:bg-purple-800 shadow-md"
+        >
+          <i class="fas fa-file-pdf text-2xl"></i>
+          <span>Resume / CV</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const emailBtn = document.getElementById("email-contact-btn");
+  const emailLabel = document.getElementById("email-label");
+
+  if (emailBtn && emailLabel) {
+    emailBtn.addEventListener("click", async () => {
+      const email =
+        emailBtn.getAttribute("data-email") || "a.cancino1996@gmail.com";
+      try {
+        if (navigator.clipboard) {
+          await navigator.clipboard.writeText(email);
+          const original = emailLabel.textContent;
+          emailLabel.textContent = "¡Copiado!";
+          setTimeout(() => {
+            emailLabel.textContent = original;
+          }, 2000);
+        } else {
+          window.location.href = `mailto:${email}`;
+        }
+      } catch (err) {
+        window.location.href = `mailto:${email}`;
+      }
+    });
+  }
+</script>

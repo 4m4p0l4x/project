@@ -1,0 +1,134 @@
+---
+import { Image } from 'astro:assets';
+import placeholderImg from '../assets/img/metricas-grafana.png';
+---
+
+<dialog
+  id="media-dialog"
+  class="fixed inset-0 m-auto p-0 bg-transparent rounded-xl shadow-2xl w-[96vw] max-w-7xl h-[94vh] z-50 backdrop:bg-black/92 backdrop:backdrop-blur-sm overflow-hidden"
+  aria-labelledby="dialog-title"
+>
+  <div class="relative bg-gray-950 border border-gray-800 rounded-xl flex flex-col h-full overflow-hidden">
+    <!-- Header bar -->
+    <div class="flex items-center justify-between px-5 py-3 border-b border-gray-800 bg-gray-900/95 text-white shrink-0">
+      <h4 id="dialog-title" class="font-semibold text-sm sm:text-base text-purple-300 truncate pr-4">
+        Media Preview
+      </h4>
+      <button
+        id="dialog-close-btn"
+        class="text-gray-400 hover:text-white text-3xl font-bold leading-none w-9 h-9 flex items-center justify-center rounded hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 shrink-0 cursor-pointer"
+        aria-label="Close preview"
+      >
+        &times;
+      </button>
+    </div>
+
+    <!-- Media container: fills the remaining height -->
+    <div class="flex-1 flex items-center justify-center bg-black overflow-hidden p-2">
+      <video
+        id="dialog-video"
+        controls
+        playsinline
+        class="w-full h-full rounded object-contain hidden"
+        style="max-height: calc(94vh - 52px);"
+      >
+        Your browser does not support the video tag.
+      </video>
+
+      <Image
+        id="dialog-image"
+        src={placeholderImg}
+        alt="Expanded media preview"
+        class="w-full h-full object-contain rounded hidden"
+        style="max-height: calc(94vh - 52px);"
+      />
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const dialog = document.getElementById('media-dialog') as HTMLDialogElement | null;
+  const dialogVideo = document.getElementById('dialog-video') as HTMLVideoElement | null;
+  const dialogImage = document.getElementById('dialog-image') as HTMLImageElement | null;
+  const dialogTitle = document.getElementById('dialog-title');
+  const closeBtn = document.getElementById('dialog-close-btn');
+
+  function closeMedia() {
+    if (!dialog) return;
+    if (dialogVideo) {
+      dialogVideo.pause();
+      dialogVideo.removeAttribute('src');
+      dialogVideo.load();
+      dialogVideo.classList.add('hidden');
+    }
+    if (dialogImage) {
+      dialogImage.classList.add('hidden');
+    }
+    if (dialog.open) dialog.close();
+  }
+
+  function openMedia(src: string, type: string, title: string) {
+    if (!dialog) return;
+    if (dialogTitle) dialogTitle.textContent = title || 'Media Preview';
+
+    if (type === 'video' && dialogVideo) {
+      if (dialogImage) dialogImage.classList.add('hidden');
+      dialogVideo.src = src;
+      dialogVideo.classList.remove('hidden');
+      dialog.showModal();
+      dialogVideo.play().catch(() => {});
+    } else if (type === 'image' && dialogImage) {
+      if (dialogVideo) {
+        dialogVideo.pause();
+        dialogVideo.removeAttribute('src');
+        dialogVideo.classList.add('hidden');
+      }
+      dialogImage.src = src;
+      dialogImage.alt = title;
+      dialogImage.classList.remove('hidden');
+      dialog.showModal();
+    }
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeMedia);
+
+  if (dialog) {
+    // Backdrop click closes the dialog
+    dialog.addEventListener('click', (e) => {
+      const rect = dialog.getBoundingClientRect();
+      const inside =
+        rect.top <= e.clientY &&
+        e.clientY <= rect.top + rect.height &&
+        rect.left <= e.clientX &&
+        e.clientX <= rect.left + rect.width;
+      if (!inside) closeMedia();
+    });
+
+    // Cleanup on native ESC close
+    dialog.addEventListener('close', () => {
+      if (dialogVideo) {
+        dialogVideo.pause();
+        dialogVideo.removeAttribute('src');
+        dialogVideo.load();
+        dialogVideo.classList.add('hidden');
+      }
+      if (dialogImage) {
+        dialogImage.classList.add('hidden');
+      }
+    });
+  }
+
+  function initLightboxTriggers() {
+    document.querySelectorAll<HTMLElement>('[data-lightbox-src]').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const src = trigger.getAttribute('data-lightbox-src');
+        const type = trigger.getAttribute('data-lightbox-type') || 'image';
+        const title = trigger.getAttribute('data-lightbox-title') || '';
+        if (src) openMedia(src, type, title);
+      });
+    });
+  }
+
+  initLightboxTriggers();
+  document.addEventListener('astro:page-load', initLightboxTriggers);
+</script>
