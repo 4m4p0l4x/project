@@ -1,0 +1,85 @@
++-----------------------------------------------------------------------+
+|  [Portfolio]                       [Home]  [About]  [Contact]        |
+|  (Fixed Top Navbar, dark, shadows on scroll, mobile hamburger)        |
++-----------------------------------------------------------------------+
+|                                                                       |
+|  [HERO SECTION] (Dark - Hubble Image + Gradient)                      |
+|                                                                       |
+|    Anahi Amapola Cancino Santelices — Software Developer              |
+|    "Mobile and Fullstack developer | Systems & Open Source"           |
+|                                                                       |
+|    [Presentation summary: mobile consulting, backend, FOSS maintainer]|
+|                                                                       |
+|    [ My Experience (Button) ]             [ Contact (Outline Button) ]|
+|                       [ View Projects (Button) ]                      |
+|                                                                       |
++-----------------------------------------------------------------------+
+|                                                                       |
+|  [ABOUT ME] (Light - bg-gray-200 with white cards)                    |
+|                                                                       |
+|  +-----------------------------+  +-----------------------------+     |
+|  | [Icon] Education            |  | [Icon] Linux Experience     |     |
+|  | Tech in CS & Informatics    |  | 2 yrs Linux, automation,    |     |
+|  | Kotlin, React, FOSS journey |  | Ansible, distro packaging   |     |
+|  +-----------------------------+  +-----------------------------+     |
+|  +--------------------------------------------------------------+     |
+|  | [Icon] Technical Interests (Full Width Card)                 |     |
+|  | Distributed systems, observability, CI/CD, mobile & fullstack|     |
+|  | [Jenkins] [Grafana] [Prometheus] [Linux] [Docker] [FOSS]     |     |
+|  +--------------------------------------------------------------+     |
+|                                                                       |
++-----------------------------------------------------------------------+
+|                                                                       |
+|  [MY EXPERIENCE] (Dark - bg-black/90 with clean cards)                |
+|                                                                       |
+|  +--------------------------------------------------------------+     |
+|  | Fullstack Developer — Freelance                  2024–Pres   |     |
+|  | Web apps, REST APIs, client deployments, maintenance         |     |
+|  | [Python/FastAPI] [Laravel] [React/TS] [Node.js] [REST APIs]  |     |
+|  +--------------------------------------------------------------+     |
+|  +--------------------------------------------------------------+     |
+|  | Mobile Software Developer (Internship) — Sonda S.A. 2026     |     |
+|  | End-to-end mobile features, Clean Architecture, BLoC/Cubit   |     |
+|  | [Flutter/Mobile] [Clean Arch] [BLoC] [Dio/REST] [SOLID] [Git]|     |
+|  +--------------------------------------------------------------+     |
+|  +--------------------------------------------------------------+     |
+|  | Sysadmin — PCLeaks                               2024        |     |
+|  | RHEL & Ubuntu Server lab administration, Ansible automation  |     |
+|  | [RHEL] [Ubuntu Server] [Ansible] [Sysadmin] [Automation]     |     |
+|  +--------------------------------------------------------------+     |
+|                                                                       |
++-----------------------------------------------------------------------+
+|                                                                       |
+|  [FEATURED PROJECTS] (Light - bg-gray-200 with modular card container)|
+|                                                                       |
+|  +--------------------------------------------------------------+     |
+|  | <article class="bg-white rounded-lg shadow-xl">              |     |
+|  | CI/CD Monitoring System                   [ GitHub Repo -> ] |     |
+|  | Observability stack (Jenkins + Grafana + Prometheus) for     |     |
+|  | CASA 6.6 pipeline.                                           |     |
+|  |                                                              |     |
+|  | Tech: [Jenkins] [Grafana] [Prometheus] [Docker] [ArchLinux]  |     |
+|  |                                                              |     |
+|  | Media Display Grid (2 x 2):                                  |     |
+|  | +---------------------------+  +---------------------------+ |     |
+|  | | [Video] Node Exporter     |  | [Video] Full CASA Pipeline| |     |
+|  | +---------------------------+  +---------------------------+ |     |
+|  | +---------------------------+  +---------------------------+ |     |
+|  | | [Image] Grafana Dashboard |  | [Image] Jenkins Pipeline  | |     |
+|  | +---------------------------+  +---------------------------+ |     |
+|  | </article>                                                   |     |
+|  +--------------------------------------------------------------+     |
+|  (Future projects: drop another <article> card into the container)    |
+|                                                                       |
++-----------------------------------------------------------------------+
+|                                                                       |
+|  [CONTACT] (Dark - bg-indigo-950)                                     |
+|                                                                       |
+|   [ [Icon] GitHub ] [ [Icon] LinkedIn ] [ [Icon] Email ] [ [Icon] CV ]|
+|                                                                       |
++-----------------------------------------------------------------------+
+|  [FOOTER]                                                             |
+|  © 2025 Portfolio · Deployed on GitHub Pages                          |
++-----------------------------------------------------------------------+
+|  [Floating Overlays: Lightbox Media Modal | Scroll-to-Top Button]     |
++-----------------------------------------------------------------------+

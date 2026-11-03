@@ -1,0 +1,35 @@
+---
+---
+
+<button
+  id="scroll-to-top"
+  type="button"
+  aria-label="Scroll to top of page"
+  class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 opacity-0 pointer-events-none z-40 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-400"
+>
+  <i class="fas fa-arrow-up text-lg"></i>
+</button>
+
+<script>
+  const scrollBtn = document.getElementById('scroll-to-top');
+
+  if (scrollBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollBtn.classList.remove('opacity-0', 'pointer-events-none');
+        scrollBtn.classList.add('opacity-100', 'pointer-events-auto');
+      } else {
+        scrollBtn.classList.add('opacity-0', 'pointer-events-none');
+        scrollBtn.classList.remove('opacity-100', 'pointer-events-auto');
+      }
+    });
+
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+</script>
+

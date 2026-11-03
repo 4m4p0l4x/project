@@ -1,0 +1,80 @@
+---
+import heroImage from "../assets/img/hubble-lmc-n44c-potw2536a.png";
+
+const heroStyle = `--hero-image: url(${heroImage.src})`;
+---
+
+<section
+  id="hero"
+  style={heroStyle}
+  class="relative min-h-screen flex flex-col items-center justify-center text-white pt-24 pb-16 lg:pt-28 lg:pb-20"
+>
+  <!-- Dark overlay for readability over the Hubble starfield background -->
+  <div class="absolute inset-0 bg-black/55 z-0"></div>
+
+  <div
+    class="container mx-auto px-6 text-center relative z-10 flex flex-col items-center justify-center flex-grow my-auto"
+  >
+    <div class="hero-content max-w-5xl xl:max-w-6xl mx-auto">
+      <h1
+        class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 lg:mb-6 opacity-0 slide-up tracking-tight leading-tight"
+      >
+        Anahi Amapola Cancino Santelices
+      </h1>
+      <p
+        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-blue-300 mb-6 lg:mb-8 opacity-0 slide-up"
+        style="animation-delay: 0.2s"
+      >
+        Software Developer
+      </p>
+
+      <div
+        class="text-xl sm:text-2xl md:text-3xl mb-8 lg:mb-10 opacity-0 slide-up font-medium text-gray-200"
+        style="animation-delay: 0.3s"
+      >
+        <span class="inline-block mx-2">Mobile and Fullstack developer</span>
+        <span class="text-blue-400 font-light">|</span>
+        <span class="inline-block mx-2">Systems & Open Source</span>
+      </div>
+
+      <p
+        class="text-lg sm:text-xl md:text-2xl mb-12 lg:mb-16 opacity-0 slide-up max-w-3xl lg:max-w-4xl xl:max-w-5xl mx-auto leading-relaxed text-gray-100/90 font-normal"
+        style="animation-delay: 0.5s"
+      >
+        Software developer with experience in mobile development at a leading
+        global consulting firm, plus working knowledge of backend systems and
+        automation. Open-source tooling maintainer, committed to writing
+        reliable software and solving problems across the engineering stack.
+      </p>
+
+      <!-- 3-Button Layout: Experience & Contact top row, View Projects centered underneath -->
+      <div
+        class="flex flex-col items-center opacity-0 slide-up gap-5 sm:gap-6"
+        style="animation-delay: 0.7s"
+      >
+        <div class="flex flex-wrap justify-center gap-5 sm:gap-8">
+          <a
+            href="#experience"
+            class="bg-white text-blue-950 px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-blue-50 hover:shadow-2xl transition duration-300 shadow-md"
+          >
+            My Experience
+          </a>
+          <a
+            href="#contact"
+            class="border-2 border-white text-white px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-white hover:text-blue-950 transition duration-300 shadow-md"
+          >
+            Contact
+          </a>
+        </div>
+        <div>
+          <a
+            href="#projects"
+            class="border-2 border-blue-300/90 text-white px-10 py-3.5 sm:px-12 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-white hover:text-blue-950 hover:border-white transition duration-300 inline-block shadow-lg"
+          >
+            View Projects
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
